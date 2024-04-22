@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Campus CookBook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchRecipes()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="menu-items" id="menuItems" style="display: none;">
+                <a href="#">Login</a>
+                <a href="#">Register</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="header">
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <h1 class="header-text">The Campus CookBook</h1>
+            <p style="font-size: 20px;">Quick, Easy, Healthy Recipes for College Students</p>
+        </div>
+    </div>
+
+    <div class="body-section">
+        <h2>Recommended For You</h2>
+        <div class="recipe-container">
+        <div class="recipe">
+        <img class="recipe-image" src="https://cdn.loveandlemons.com/wp-content/uploads/2021/05/scrambled-eggs.jpg" alt="Scrambled Eggs">
+        <h3>Scrambled Eggs</h3>
+        <p>Time to Prepare: 10 mins</p>
+        <p>Difficulty Level: Easy</p>
+        <p>Rating: ★★★★☆</p>
+    </div>
+    
+        <div class="recipe">
+            <img class ="recipe-image" src="https://deliciouslittlebites.com/wp-content/uploads/2018/03/Banana-Toast-Recipe-Image-3.jpg" alt="Peanut Butter Banana Toast">
+            <h3>Peanut Butter Banana Toast</h3>
+            <p>Time to Prepare: 5 mins</p>
+            <p>Difficulty Level: Very Easy</p>
+            <p>Rating: ★★★★☆</p>
+        </div>
+        <div class="recipe">
+            <img class ="recipe-image" src="https://www.beyondthechickencoop.com/wp-content/uploads/2023/05/Greek-Yogurt-Berry-Parfait-4.jpg" alt="Greek Yogurt Parfait">
+            <h3>Greek Yogurt Parfait</h3>
+            <p>Time to Prepare: 8 mins</p>
+            <p>Difficulty Level: Easy</p>
+            <p>Rating: ★★★☆☆</p>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <div class="about-us">
+            <h2>Welcome to The Campus CookBook!</h2>
+            <p>Our mission is to provide college students living away from home with easy, quick, and healthy recipes. Say goodbye to dining out every night and hello to delicious homemade meals that fit your busy student lifestyle.</p>
+        </div>
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Email: contact@thecampuscookbook.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div class="social-media">
+            <h2>Follow Us</h2>
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
