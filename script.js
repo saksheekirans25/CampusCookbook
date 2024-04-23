@@ -23,18 +23,34 @@ var recipes = [
     
     function searchRecipes() {
         var searchInput = document.getElementById("searchInput").value.toLowerCase();
+        var recipes = document.querySelectorAll(".recipe h3"); // Select all recipe titles
         var filteredRecipes = [];
-    
+
         recipes.forEach(function(recipe) {
-            if (recipe.ingredients.includes(searchInput)) {
-                filteredRecipes.push(recipe.name);
+            var recipeTitle = recipe.textContent.toLowerCase();
+            if (recipeTitle.includes(searchInput)) {
+                filteredRecipes.push(recipeTitle);
             }
         });
-    
-        if (filteredRecipes.length > 0) {
-            document.getElementById("recipeContainer").innerHTML = "Recipes containing '" + searchInput + "':<br>" + filteredRecipes.join("<br>");
+
+        var recipeContainer = document.getElementById("recipeContainer");
+        if (recipeContainer) {
+            recipeContainer.innerHTML = "Recipes containing '" + searchInput + "':<br>" + (filteredRecipes.length > 0 ? filteredRecipes.join("<br>") : "No recipes found.");
         } else {
-            document.getElementById("recipeContainer").innerHTML = "No recipes found containing '" + searchInput + "'.";
+            console.error("Recipe container not found.");
         }
     }
+    
+        // Display search results
+        var recipeContainer = document.getElementById("recipeContainer");
+        if (recipeContainer) {
+            if (filteredRecipes.length > 0) {
+                recipeContainer.innerHTML = "Recipes containing '" + searchInput + "':<br>" + filteredRecipes.join("<br>");
+            } else {
+                recipeContainer.innerHTML = "No recipes found containing '" + searchInput + "'.";
+            }
+        } else {
+            console.error("Recipe container not found.");
+        }
+    
     
