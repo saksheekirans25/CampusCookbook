@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peanut Butter Banana Toast Recipe - The Campus Cookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Preferred font */
+            line-height: 1.6; /* Increased line spacing */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content */
+        }
+        .recipe-detail {
+            max-width: 800px; /* Adjust as necessary */
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the content */
+            border-radius: 5px; /* Rounded corners */
+        }
+        .recipe-detail img {
+            max-width: 100%; /* Make image responsive */
+            height: auto;
+            display: block; /* Remove any inline characteristics */
+            margin: 0 auto 20px; /* Center image and add space below */
+            border-radius: 5px; /* Rounded corners for images */
+        }
+        h1, h2 {
+            text-align: center; /* Center headings */
+        }
+        ul, ol {
+            padding-left: 20px; /* Indent list items */
+        }
+        main {
+             margin-top: 40px; /* Adjust this value as needed to increase the gap */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchRecipes()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="index.html#footer">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="menu-items" id="menuItems" style="display: none;">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="recipe-detail">
+            <h1>Peanut Butter Banana Toast</h1>
+            <img src="https://deliciouslittlebites.com/wp-content/uploads/2018/03/Banana-Toast-Recipe-Image-3.jpg" alt="Peanut Butter Banana Toast">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>2 slices of bread</li>
+                <li>2 tablespoons peanut butter</li>
+                <li>1 banana, sliced</li>
+                <li>Honey or maple syrup (optional)</li>
+                <li>Cinnamon (optional)</li>
+            </ul>
+            <h2>Instructions</h2>
+            <ol>
+                <li>Toast the bread until golden brown.</li>
+                <li>Spread peanut butter evenly over each slice of toast.</li>
+                <li>Arrange banana slices on top of the peanut butter.</li>
+                <li>Drizzle with honey or maple syrup and sprinkle with cinnamon, if desired.</li>
+                <li>Serve immediately and enjoy!</li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <!-- Your footer here -->
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
