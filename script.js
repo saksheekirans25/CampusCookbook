@@ -53,4 +53,39 @@ var recipes = [
             console.error("Recipe container not found.");
         }
     
-    
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents form from submitting traditionally
+        
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+        
+            // Basic validation
+            if (email.trim() === '' || password.trim() === '') {
+                document.getElementById('errorMessage').textContent = 'Please fill in both fields.';
+                return;
+            }
+        
+            // Example: Send credentials to the server
+            fetch('your-backend-endpoint/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Handle successful login
+                    console.log('Login successful');
+                    // Redirect to another page or update the UI accordingly
+                } else {
+                    // Show error message
+                    document.getElementById('errorMessage').textContent = 'Invalid credentials.';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+        

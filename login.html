@@ -4,39 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Campus CookBook - Login</title>
+<link rel="stylesheet" href="style.css">
 <style>
     body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-color: #fff3e6; /* light peach color */
-        background-image: url('meal1.jpg'), url('meal2.jpg'), url('meal3.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-    }
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff3e6; /* Light peach color */
+    background-image: url('https://i.pinimg.com/736x/00/9e/6c/009e6cc0d03032583e11039683c3c8fb.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
     .overlay {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255, 255, 255, 0.6); /* semi-transparent white overlay */
+        background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white overlay */
+        background-color: rgba(255, 255, 255, 0.7); /* Slightly more opaque */
+    z-index: -1;
     }
+    
     .main-container {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-    }
-    .login-container {
-        width: 300px;
-        margin: 0 auto;
-    }
+    position: relative;
+    top: 60px; /* Adjust if your header height requires */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* This will help vertically center the content */
+    width: 100%;
+    max-width: 450px; /* Adjusted size of the box */
+    padding: 40px;
+    margin: 0 auto;
+    margin-top: 40px; /* Added space from the top */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Includes padding in the width */
+}
+
+.login-container {
+    width: 100%; /* Makes sure it uses all available space */
+    /* Keeps it centered and aligned */
+}
+
     .login-container h2 {
         margin-bottom: 20px;
         text-align: center;
@@ -51,17 +69,19 @@
         border-radius: 5px;
     }
     .form-group button {
-        width: 100%;
-        padding: 10px;
-        background-color: #ff6f61; /* coral color */
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .form-group button:hover {
-        background-color: #e2594b; /* darker coral color on hover */
-    }
+    width: 100%;
+    padding: 10px;
+    background-color: #d1768f; /* Header's coral color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #d1768f; /* Darker coral color on hover */
+}
+
     .error-message {
         color: red;
         margin-top: 10px;
@@ -70,26 +90,45 @@
 </style>
 </head>
 <body>
-
-<div class="overlay"></div>
-
-<div class="main-container">
-    <div class="login-container">
-        <h2>Login to Campus CookBook</h2>
-        <div class="form-group">
-            <input type="email" id="email" placeholder="Email" required>
+    <header>
+        <div class="logo">
+            <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
         </div>
-        <div class="form-group">
-            <input type="password" id="password" placeholder="Password" required>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchRecipes()">Search</button>
         </div>
-        <div class="form-group">
-            <button onclick="login()">Login</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#footer">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="menu-items" id="menuItems" style="display: none;">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
         </div>
-        <div class="error-message" id="error-message"></div>
+    </header>
+    <div class="overlay"></div>
+    <div class="main-container">
+        <div class="login-container">
+            <h2>Login to Campus CookBook</h2>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <button onclick="login()">Login</button>
+            </div>
+            <div class="error-message" id="error-message"></div>
+        </div>
     </div>
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>

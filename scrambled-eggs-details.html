@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrambled Eggs Recipe - The Campus Cookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Preferred font */
+            line-height: 1.6; /* Increased line spacing */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content */
+        }
+        .recipe-detail {
+            max-width: 800px; /* Adjust as necessary */
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the content */
+            border-radius: 5px; /* Rounded corners */
+        }
+        .recipe-detail img {
+            max-width: 100%; /* Make image responsive */
+            height: auto;
+            display: block; /* Remove any inline characteristics */
+            margin: 0 auto 20px; /* Center image and add space below */
+            border-radius: 5px; /* Rounded corners for images */
+        }
+        h1, h2 {
+            text-align: center; /* Center headings */
+        }
+        ul, ol {
+            padding-left: 20px; /* Indent list items */
+        }
+        main {
+             margin-top: 40px; /* Adjust this value as needed to increase the gap */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchRecipes()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="index.html#footer">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="menu-items" id="menuItems" style="display: none;">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="recipe-detail">
+            <h1>Simple Scrambled Eggs</h1>
+            <img src="https://cdn.loveandlemons.com/wp-content/uploads/2021/05/scrambled-eggs.jpg" alt="Scrambled Eggs">
+            <h2>Ingredients</h2>
+            <ul>
+                <li>2 eggs</li>
+                <li>1 tablespoon milk</li>
+                <li>Salt and pepper to taste</li>
+                <li>Butter or oil for cooking</li>
+            </ul>
+            <h2>Instructions</h2>
+            <ol>
+                <li>Beat eggs, milk, salt, and pepper together in a bowl.</li>
+                <li>Heat butter or oil in a pan over medium heat.</li>
+                <li>Pour in egg mixture and stir gently until cooked through, about 2-3 minutes.</li>
+                <li>Serve immediately, enjoy!</li>
+            </ol>
+        </section>
+    </main>
+    <footer>
+        <!-- Your footer here -->
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
