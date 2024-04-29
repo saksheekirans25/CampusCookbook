@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - The Campus Cookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styling for recipe cards */
+        .recipe-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            display: inline-block;
+        }
+        .recipe-card img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchRecipes()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#footer">About Us</a></li>
+                <li><a href="recipe-add.html">Add Your Recipe</a></li> <!-- Added link to recipe-add.html -->
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="menu-items" id="menuItems" style="display: none;">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h1>Recipes</h1>
+        <div id="recipeContainer"></div>
+    </main>
+    <footer id="footer">
+        <div class="about-us">
+            <h2>Welcome to The Campus CookBook!</h2>
+            <p>Our mission is to provide college students living away from home with easy, quick, and healthy recipes. Say goodbye to dining out every night and hello to delicious homemade meals that fit your busy student lifestyle.</p>
+        </div>
+        <div class="contact-info">
+            <h2>Contact Us</h2>
+            <p>Email: contact@thecampuscookbook.com</p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+        <div class="social-media">
+            <h2>Follow Us</h2>
+            <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+        </div>
+    </footer>
+    <script>
+        // Load recipes from JSON file and display them
+        fetch("recipes.json")
+            .then(response => response.json())
+            .then(data => {
+                var recipeContainer = document.getElementById("recipeContainer");
+                data.forEach(recipe => {
+                    var card = document.createElement("div");
+                    card.classList.add("recipe-card");
+
+                    var img = document.createElement("img");
+                    img.src = recipe.image;
+                    card.appendChild(img);
+
+                    var name = document.createElement("h2");
+                    name.textContent = recipe.name;
+                    card.appendChild(name);
+
+                    var ingredients = document.createElement("p");
+                    ingredients.textContent = "Ingredients: " + recipe.ingredients;
+                    card.appendChild(ingredients);
+
+                    var instructions = document.createElement("p");
+                    instructions.textContent = "Instructions: " + recipe.instructions;
+                    card.appendChild(instructions);
+
+                    recipeContainer.appendChild(card);
+                });
+            })
+            .catch(error => console.error("Error:", error));
+    </script>
+</body>
+</html>
