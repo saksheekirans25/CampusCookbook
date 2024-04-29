@@ -168,25 +168,37 @@ nav ul li {
 
 /* Recipe card styles */
 .recipe {
-    flex: -50px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: calc(33.33% - 20px); /* Adjust the width as per your requirement */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block; /* Display recipes inline */
+    vertical-align: top; /* Align recipes to the top */
+    overflow: hidden; /* Prevent overflow */
+    max-width: 400px; /* Limit the maximum width */
+    height: 700px; /* Set a fixed height for the card */
 }
 
-.recipe img {
-    width: 30%;
-    border-radius: 15px;
-    margin-bottom: 15px;
-    filter: brightness(100%);
-}
 .recipe .recipe-image {
-    width: 100%;
-    height: 1000px; /* Adjust height as needed */
+    width: 100%; /* Make image fill the container */
+    height: 80%; /* Adjust image height */
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 5px; /* Rounded corners */
 }
+
+.recipe h3 {
+    margin-top: 10px; /* Adjust margin for recipe title */
+}
+
+.recipe p {
+    margin-top: 5px; /* Adjust margin for recipe details */
+}
+
+
+
 
 
 /* Footer styles */
