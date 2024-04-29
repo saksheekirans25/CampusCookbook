@@ -6,53 +6,8 @@
     <title>Add Your Recipe - The Campus Cookbook</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .recipe-form {
-            max-width: 800px;
-            margin: 20px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        .recipe-form input,
-        .recipe-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            }
-        .recipe-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #d1768f;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .recipe-form button:hover {
-            background-color: #d1768f;
-        }
-
-        .recipe-form label {
-            font-weight: bold; /* Make labels bold */
-            display: block; /* Ensure each label is on a new line */
-            margin-top: 10px; /* Add some space above each label */
-        }
-        .recipe-form textarea {
-            height: 100px; /* Increase height of textarea */
-        }
-        </style>
+        /* Your CSS styles here */
+    </style>
 </head>
 <body>
     <header>
@@ -74,7 +29,9 @@
             </div>
         </div>
     </header>
+
     
+    <!-- Main content section -->
     <main>
         <div class="recipe-form">
             <h1>Add Your Recipe</h1>
@@ -92,11 +49,13 @@
                 <textarea id="instructions" name="instructions" required></textarea>
 
                 <button type="button" onclick="submitForm()">Submit</button>
+
             </form>
             <p><a href="index.html">Return to Homepage</a></p>
         </div>
     </main>
-    footer id="footer">
+    
+    <footer id="footer">
         <div class="about-us">
             <h2>Welcome to The Campus CookBook!</h2>
             <p>Our mission is to provide college students living away from home with easy, quick, and healthy recipes. Say goodbye to dining out every night and hello to delicious homemade meals that fit your busy student lifestyle.</p>
@@ -111,54 +70,57 @@
             <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </div>
     </footer>
+
+
+    <!-- JavaScript code -->
     <script src="script.js"></script>
     <script>
-    function submitForm() {
-        // Get form data
-        var recipeName = document.getElementById("recipeName").value;
-        var recipeImage = document.getElementById("recipeImage").files[0];
-        var ingredients = document.getElementById("ingredients").value;
-        var instructions = document.getElementById("instructions").value;
+        function submitForm() {
+            // Get form data
+            var recipeName = document.getElementById("recipeName").value;
+            var recipeImage = document.getElementById("recipeImage").files[0];
+            var ingredients = document.getElementById("ingredients").value;
+            var instructions = document.getElementById("instructions").value;
 
-        // Create FormData object to send file data
-        var formData = new FormData();
-        formData.append("recipeName", recipeName);
-        formData.append("recipeImage", recipeImage);
-        formData.append("ingredients", ingredients);
-        formData.append("instructions", instructions);
+            // Create FormData object to send file data
+            var formData = new FormData();
+            formData.append("recipeName", recipeName);
+            formData.append("recipeImage", recipeImage);
+            formData.append("ingredients", ingredients);
+            formData.append("instructions", instructions);
 
-        // Send form data to a server (you can use AJAX or fetch to send data to a backend)
-        // Here, we'll simulate sending the data by just updating the JSON file
-        fetch("recipes.json")
-            .then(response => response.json())
-            .then(data => {
-                // Add new recipe to the existing recipes array
-                data.push({
-                    "name": recipeName,
-                    "image": recipeImage.name,
-                    "ingredients": ingredients,
-                    "instructions": instructions
-                });
+            // Send form data to a server (you can use AJAX or fetch to send data to a backend)
+            // Here, we'll simulate sending the data by just updating the JSON file
+            fetch("recipes.json")
+                .then(response => response.json())
+                .then(data => {
+                    // Add new recipe to the existing recipes array
+                    data.push({
+                        "name": recipeName,
+                        "image": recipeImage.name,
+                        "ingredients": ingredients,
+                        "instructions": instructions
+                    });
 
-                // Write updated data back to the JSON file
-                var updatedData = JSON.stringify(data);
-                fetch("recipes.json", {
-                    method: "PUT",
-                    body: updatedData
-                })
-                .then(() => {
-                    // Show success message
-                    alert("Recipe added successfully!");
-                    
-                    // Redirect to index.html after a short delay
-                    setTimeout(function() {
-                        window.location.href = "index.html";
-                    }, 1000);
+                    // Write updated data back to the JSON file
+                    var updatedData = JSON.stringify(data);
+                    fetch("recipes.json", {
+                        method: "PUT",
+                        body: updatedData
+                    })
+                    .then(() => {
+                        // Show success message
+                        alert("Recipe added successfully!");
+                        
+                        // Redirect to index.html after a short delay
+                        setTimeout(function() {
+                            window.location.href = "index.html";
+                        }, 1000);
+                    })
+                    .catch(error => console.error("Error:", error));
                 })
                 .catch(error => console.error("Error:", error));
-            })
-            .catch(error => console.error("Error:", error));
-    }
-</script>
+        }
+    </script>
 </body>
 </html>
