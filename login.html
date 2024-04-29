@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Campus CookBook - Login</title>
 <link rel="stylesheet" href="style.css">
+
 <style>
     body {
     display: flex;
@@ -89,6 +90,7 @@
     }
 </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -117,7 +119,7 @@
     <div class="main-container">
         <div class="login-container">
             <h2>Login to Campus CookBook</h2>
-            <form id="loginForm" action="login.php" method="post"> <!-- Updated action to login.php and method to post -->
+            <form id="loginForm"> <!-- Removed action and method attributes -->
                 <div class="form-group">
                     <input type="email" name="email" id="email" placeholder="Email" required>
                 </div>
@@ -125,12 +127,27 @@
                     <input type="password" name="password" id="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="login">Login</button>
+                    <button type="button" onclick="login()">Login</button> <!-- Changed type to button and added onclick event -->
                 </div>
                 <div class="error-message" id="error-message"></div>
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+    <!-- Your existing HTML content here -->
+
+    <!-- JavaScript to handle login and redirect to the home page -->
+    <script>
+        // Function to handle login and redirect to the home page
+        function login() {
+            // Retrieve email and password values
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Here you can add validation for email and password if needed
+
+            // Redirect the user to the home page
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
