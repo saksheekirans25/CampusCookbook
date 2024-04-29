@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    header>
         <div class="logo">
             <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
         </div>
@@ -34,7 +34,7 @@
     <div class="main-container">
         <div class="login-container">
             <h2>Register for Campus CookBook</h2>
-            <form id="registerForm" action="register.php" method="post"> <!-- Updated action to register.php and method to post -->
+            <form id="registerForm"> <!-- Removed action and method attributes -->
                 <div class="form-group">
                     <input type="text" name="firstName" id="firstName" placeholder="First Name" required>
                 </div>
@@ -54,13 +54,23 @@
                     <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-enter Password" required>
                 </div>
                 <div class="form-group">
-                    <button type="submit" name="register">Register</button>
+                    <button type="button" onclick="register()">Register</button> <!-- Changed type to button and added onclick event -->
                 </div>
                 <div class="error-message" id="error-message"></div>
             </form>
         </div>
-        
     </div>
-    <script src="script.js"></script>
+    <!-- Your existing HTML content here -->
+
+    <!-- JavaScript to handle registration and redirect to the login page -->
+    <script>
+        // Function to handle registration and redirect to the login page
+        function register() {
+            // Here you can add code to validate the registration form if needed
+
+            // Redirect the user to the login page
+            window.location.href = "login.html";
+        }
+    </script>
 </body>
 </html>
