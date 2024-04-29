@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Your Recipe - The Campus Cookbook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .recipe-form {
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .recipe-form input,
+        .recipe-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .recipe-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d1768f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .recipe-form button:hover {
+            background-color: #d1768f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <button onclick="searchRecipes()">Search</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="index.html#footer">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-icon"></div>
+            <div class="menu-items" id="menuItems" style="display: none;">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="recipe-form">
+            <h1>Add Your Recipe</h1>
+            <form action="submit_recipe.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Recipe Title" required>
+                <textarea name="ingredients" placeholder="Ingredients" rows="4" required></textarea>
+                <textarea name="instructions" placeholder="Instructions" rows="4" required></textarea>
+                <input type="file" name="image" accept="image/*">
+                <button type="submit">Submit Recipe</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <!-- Your footer here -->
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
