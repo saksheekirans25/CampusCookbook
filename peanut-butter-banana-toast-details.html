@@ -38,6 +38,39 @@
         main {
              margin-top: 40px; /* Adjust this value as needed to increase the gap */
         }
+        /* Style for the review modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px; /* Position modal at center */
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
         /* Styles for the "Leave a Review" button */
         .leave-review-button {
@@ -130,26 +163,24 @@
                 <!-- Reviews will be displayed here -->
             </div>
 
-            <!-- Modal for review form -->
+
             <div id="reviewModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeReviewModal()">&times;</span>
-                    <div class="review-form">
-                        <h2>Leave a Review</h2>
-                        <form id="reviewForm" onsubmit="submitReview(event)">
-                            <input type="text" id="comment" name="comment" placeholder="Write your comment" required><br>
-                            <!-- Use radio buttons for rating with empty and filled stars -->
-                            <div class="stars">
-                                <input type="radio" id="star5" name="rating" value="5" required/><label for="star5" title="5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
-                            </div>
-                            <br>
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
+                    <h2>Leave a Review</h2>
+                    <form id="reviewForm" onsubmit="submitReview(event)">
+                        <input type="text" id="comment" name="comment" placeholder="Write your comment" required><br>
+                        <!-- Use radio buttons for rating with empty and filled stars -->
+                        <div class="stars">
+                            <input type="radio" id="star5" name="rating" value="5" required/><label for="star5" title="5 stars"></label>
+                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"></label>
+                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"></label>
+                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"></label>
+                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
+                        </div>
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
             </div>
         </section>
