@@ -5,31 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Campus CookBook</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .recipe {
+            width: calc(33.33% - 20px); /* Adjust the width as per your requirement */
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            text-align: center;
+            display: inline-block; /* Display recipes inline */
+            vertical-align: top; /* Align recipes to the top */
+            overflow: hidden; /* Prevent overflow */
+        }
+
+        .recipe .recipe-image {
+            width: 100%; /* Make image fill the container */
+            border-radius: 5px; /* Rounded corners */
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
             <span style="font-family: 'Pacifico', cursive; font-size: 36px;">The Campus CookBook</span>
         </div>
-        <!--div class="search-bar">
+        <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Search...">
             <button onclick="searchRecipes()">Search</button>
-    </div>
-        -->
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#">Recipes</a></li>
                 <li><a href="#footer">About Us</a></li>
                 <li><a href="recipe-add.html">Add Your Recipe</a></li> <!-- Added link to recipe-add.html -->
-
             </ul>
         </nav>
         <div class="hamburger-menu" onclick="toggleMenu()">
             <div class="hamburger-icon"></div>
             <div class="menu-items" id="menuItems" style="display: none;">
-                <a href="login.php">Login</a>
-                <a href="register.php">Register</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
             </div>
         </div>
     </header>
@@ -45,38 +62,37 @@
     <div class="body-section">
         <h2>Recommended For You</h2>
         <div class="recipe-container">
-            <a href="scrambled-eggs-details.html" style="text-decoration: none; color: black;">
-                <div class="recipe">
+            <div class="recipe">
+                <a href="scrambled-eggs-details.html" style="text-decoration: none; color: black;">
                     <img class="recipe-image" src="https://cdn.loveandlemons.com/wp-content/uploads/2021/05/scrambled-eggs.jpg" alt="Scrambled Eggs">
                     <h3>Scrambled Eggs</h3>
                     <p>Time to Prepare: 10 mins</p>
                     <p>Difficulty Level: Easy</p>
                     <p>Rating: ★★★★☆</p>
-                </div>
-            </a>
-            <a href="peanut-butter-banana-toast-details.html" style="text-decoration: none; color: black;">
-                <div class="recipe">
+                </a>
+            </div>
+            <div class="recipe">
+                <a href="peanut-butter-banana-toast-details.html" style="text-decoration: none; color: black;">
                     <img class="recipe-image" src="https://deliciouslittlebites.com/wp-content/uploads/2018/03/Banana-Toast-Recipe-Image-3.jpg" alt="Peanut Butter Banana Toast">
                     <h3>Peanut Butter Banana Toast</h3>
                     <p>Time to Prepare: 5 mins</p>
                     <p>Difficulty Level: Very Easy</p>
                     <p>Rating: ★★★★☆</p>
-                </div>
-            </a>
-            <a href="greek-yogurt-parfait-details.html" style="text-decoration: none; color: black;">
-                <div class="recipe">
+                </a>
+            </div>
+            <div class="recipe">
+                <a href="greek-yogurt-parfait-details.html" style="text-decoration: none; color: black;">
                     <img class="recipe-image" src="https://www.beyondthechickencoop.com/wp-content/uploads/2023/05/Greek-Yogurt-Berry-Parfait-4.jpg" alt="Greek Yogurt Parfait">
                     <h3>Greek Yogurt Parfait</h3>
                     <p>Time to Prepare: 8 mins</p>
                     <p>Difficulty Level: Easy</p>
                     <p>Rating: ★★★☆☆</p>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
     </div>
     
-
-    <footer id = "footer">
+    <footer id="footer">
         <div class="about-us">
             <h2>Welcome to The Campus CookBook!</h2>
             <p>Our mission is to provide college students living away from home with easy, quick, and healthy recipes. Say goodbye to dining out every night and hello to delicious homemade meals that fit your busy student lifestyle.</p>
