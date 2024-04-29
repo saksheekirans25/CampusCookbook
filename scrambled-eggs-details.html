@@ -225,34 +225,44 @@
         </div>
     </footer>
 
-    <script>
-        // Function to open the review modal
-        function openReviewModal() {
-            document.getElementById("reviewModal").style.display = "block";
+<script>
+    // Function to open the review modal
+    function openReviewModal() {
+        document.getElementById("reviewModal").style.display = "block";
+    }
+
+    // Function to close the review modal
+    function closeReviewModal() {
+        document.getElementById("reviewModal").style.display = "none";
+    }
+
+    // Function to submit the review form
+    function submitReview(event) {
+        event.preventDefault(); // Prevent form submission
+        var comment = document.getElementById("comment").value;
+        var rating = document.querySelector('input[name="rating"]:checked').value;
+
+        // You can handle the submission here, for example, send data to a server via AJAX
+
+        // For demonstration, let's just display the review below the button
+        var reviewSection = document.getElementById("reviewSection");
+        var reviewDiv = document.createElement("div");
+        reviewDiv.innerHTML = "<strong>Rating:</strong> " + getStars(rating) + "<br><strong>Comment:</strong> " + comment + "<hr>";
+        reviewSection.appendChild(reviewDiv);
+
+        // Close the modal after submission
+        closeReviewModal();
+    }
+
+    // Function to generate filled stars based on the rating
+    function getStars(rating) {
+        var stars = "";
+        for (var i = 0; i < rating; i++) {
+            stars += "&#9733;"; // Filled star
         }
+        return stars;
+    }
+</script>
 
-        // Function to close the review modal
-        function closeReviewModal() {
-            document.getElementById("reviewModal").style.display = "none";
-        }
-
-        // Function to submit the review form
-        function submitReview(event) {
-            event.preventDefault(); // Prevent form submission
-            var comment = document.getElementById("comment").value;
-            var rating = document.getElementById("rating").value;
-
-            // You can handle the submission here, for example, send data to a server via AJAX
-
-            // For demonstration, let's just display the review below the button
-            var reviewSection = document.getElementById("reviewSection");
-            var reviewDiv = document.createElement("div");
-            reviewDiv.innerHTML = "<strong>Rating:</strong> " + rating + " stars<br><strong>Comment:</strong> " + comment + "<hr>";
-            reviewSection.appendChild(reviewDiv);
-
-            // Close the modal after submission
-            closeReviewModal();
-        }
-    </script>
 </body>
 </html>
