@@ -6,8 +6,54 @@
     <title>Add Your Recipe - The Campus Cookbook</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Your CSS styles here */
-    </style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .recipe-form {
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .recipe-form input,
+        .recipe-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            }
+        .recipe-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #d1768f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .recipe-form button:hover {
+            background-color: #d1768f;
+        }
+
+        .recipe-form label {
+            font-weight: bold; /* Make labels bold */
+            display: block; /* Ensure each label is on a new line */
+            margin-top: 10px; /* Add some space above each label */
+        }
+        .recipe-form textarea {
+            height: 100px; /* Increase height of textarea */
+        }
+        </style>
+
 </head>
 <body>
     <header>
