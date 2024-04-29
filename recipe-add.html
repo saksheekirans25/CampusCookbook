@@ -30,7 +30,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-        }
+            }
         .recipe-form button {
             width: 100%;
             padding: 10px;
@@ -52,7 +52,7 @@
         .recipe-form textarea {
             height: 100px; /* Increase height of textarea */
         }
-    </style>
+        </style>
 </head>
 <body>
     <header>
@@ -81,7 +81,7 @@
     <main>
         <div class="recipe-form">
             <h1>Add Your Recipe</h1>
-            <form id="recipeForm" enctype="multipart/form-data" onsubmit="submitForm(event)">
+            <form id="recipeForm" enctype="multipart/form-data">
                 <label for="recipeName">Recipe Name:</label>
                 <input type="text" id="recipeName" name="recipeName" required>
 
@@ -99,7 +99,7 @@
             <p><a href="index.html">Return to Homepage</a></p>
         </div>
     </main>
-   <footer id="footer">
+    footer id="footer">
         <div class="about-us">
             <h2>Welcome to The Campus CookBook!</h2>
             <p>Our mission is to provide college students living away from home with easy, quick, and healthy recipes. Say goodbye to dining out every night and hello to delicious homemade meals that fit your busy student lifestyle.</p>
@@ -116,8 +116,9 @@
     </footer>
     <script src="script.js"></script>
     <script>
-        function submitForm(event) {
-            event.preventDefault(); // Prevent the default form submission
+        function submitForm() {
+            var form = document.getElementById("recipeForm");
+            var formData = new FormData(form);
 
             // Show alert message
             alert("Thank you for adding your recipe!");
@@ -127,5 +128,6 @@
                 window.location.href = "index.html";
             }, 1000); // 1000 milliseconds = 1 second
         }
+    </script>
 </body>
 </html>
