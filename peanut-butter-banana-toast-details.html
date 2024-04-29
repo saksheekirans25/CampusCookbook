@@ -40,24 +40,22 @@
         }
         /* Style for the review modal */
         .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
+            display: none; /* Hide the modal by default */
+            position: fixed;
             z-index: 1; /* Sit on top */
             left: 0;
             top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scrolling if needed */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            padding-top: 60px; /* Position modal at center */
         }
         .modal-content {
             background-color: #fefefe;
-            margin: 5% auto; /* 5% from the top and centered */
+            margin: 15% auto; /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
             width: 80%; /* Could be more or less, depending on screen size */
-            border-radius: 5px;
         }
         .close {
             color: #aaa;
@@ -96,8 +94,6 @@
         .review-form input[type="submit"]:hover {
             background-color: #45a049;
         }
-
-
         /* Styles for the "Leave a Review" button */
         .leave-review-button {
             font-weight: bold;
@@ -133,8 +129,7 @@
         .stars input[type="radio"]:checked ~ label:before {
             content: '\2605'; /* Filled star */
         }
-
-    </style>
+            </style>
 </head>
 <body>
     <header>
@@ -181,7 +176,7 @@
                 <li>Serve immediately and enjoy!</li>
             </ol>
 
-            <!-- "Leave a Review" button -->
+             <!-- "Leave a Review" button -->
             <button class="leave-review-button" onclick="openReviewModal()">Leave a Review</button>
 
             <!-- Review section -->
@@ -189,28 +184,30 @@
                 <!-- Reviews will be displayed here -->
             </div>
 
-
+            <!-- Modal for review form -->
             <div id="reviewModal" class="modal">
                 <div class="modal-content">
                     <span class="close" onclick="closeReviewModal()">&times;</span>
-                    <h2>Leave a Review</h2>
-                    <form id="reviewForm" onsubmit="submitReview(event)">
-                        <input type="text" id="comment" name="comment" placeholder="Write your comment" required><br>
-                        <!-- Use radio buttons for rating with empty and filled stars -->
-                        <div class="stars">
-                            <input type="radio" id="star5" name="rating" value="5" required/><label for="star5" title="5 stars"></label>
-                            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"></label>
-                            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"></label>
-                            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"></label>
-                            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
-                        </div>
-                        <br>
-                        <button type="submit">Submit</button>
-                    </form>
+                    <div class="review-form">
+                        <h2>Leave a Review</h2>
+                        <form id="reviewForm" onsubmit="submitReview(event)">
+                            <input type="text" id="comment" name="comment" placeholder="Write your comment" required><br>
+                            <!-- Use radio buttons for rating with empty and filled stars -->
+                            <div class="stars">
+                                <input type="radio" id="star5" name="rating" value="5" required/><label for="star5" title="5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"></label>
+                            </div>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
     <footer id="footer">
         <div class="about-us">
             <h2>Welcome to The Campus CookBook!</h2>
@@ -226,44 +223,44 @@
             <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
         </div>
     </footer>
-    <script src="script.js"></script>
-    <script>
-        // Function to open the review modal
-        function openReviewModal() {
-            document.getElementById("reviewModal").style.display = "block";
+
+<script>
+    // Function to open the review modal
+    function openReviewModal() {
+        document.getElementById("reviewModal").style.display = "block";
+    }
+
+    // Function to close the review modal
+    function closeReviewModal() {
+        document.getElementById("reviewModal").style.display = "none";
+    }
+
+    // Function to submit the review form
+    function submitReview(event) {
+        event.preventDefault(); // Prevent form submission
+        var comment = document.getElementById("comment").value;
+        var rating = document.querySelector('input[name="rating"]:checked').value;
+
+        // You can handle the submission here, for example, send data to a server via AJAX
+
+        // For demonstration, let's just display the review below the button
+        var reviewSection = document.getElementById("reviewSection");
+        var reviewDiv = document.createElement("div");
+        reviewDiv.innerHTML = "<strong>Rating:</strong> " + getStars(rating) + "<br><strong>Comment:</strong> " + comment + "<hr>";
+        reviewSection.appendChild(reviewDiv);
+
+        // Close the modal after submission
+        closeReviewModal();
+    }
+
+    // Function to generate filled stars based on the rating
+    function getStars(rating) {
+        var stars = "";
+        for (var i = 0; i < rating; i++) {
+            stars += "&#9733;"; // Filled star
         }
-
-        // Function to close the review modal
-        function closeReviewModal() {
-            document.getElementById("reviewModal").style.display = "none";
-        }
-
-        // Function to submit the review form
-        function submitReview(event) {
-            event.preventDefault(); // Prevent form submission
-            var comment = document.getElementById("comment").value;
-            var rating = document.querySelector('input[name="rating"]:checked').value;
-
-            // You can handle the submission here, for example, send data to a server via AJAX
-
-            // For demonstration, let's just display the review below the button
-            var reviewSection = document.getElementById("reviewSection");
-            var reviewDiv = document.createElement("div");
-            reviewDiv.innerHTML = "<strong>Rating:</strong> " + getStars(rating) + "<br><strong>Comment:</strong> " + comment + "<hr>";
-            reviewSection.appendChild(reviewDiv);
-
-            // Close the modal after submission
-            closeReviewModal();
-        }
-
-        // Function to generate filled stars based on the rating
-        function getStars(rating) {
-            var stars = "";
-            for (var i = 0; i < rating; i++) {
-                stars += "&#9733;"; // Filled star
-            }
-            return stars;
-        }
-    </script>
+        return stars;
+    }
+</script>
 </body>
 </html>
