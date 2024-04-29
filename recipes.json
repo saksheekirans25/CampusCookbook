@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Scrambled Eggs",
+        "image": "https://cdn.loveandlemons.com/wp-content/uploads/2021/05/scrambled-eggs.jpg",
+        "timeToPrepare": "10 mins",
+        "difficultyLevel": "Easy",
+        "rating": "★★★★☆",
+        "detailsPage": "scrambled-eggs-details.html"
+    },
+    {
+        "name": "Peanut Butter Banana Toast",
+        "image": "https://deliciouslittlebites.com/wp-content/uploads/2018/03/Banana-Toast-Recipe-Image-3.jpg",
+        "timeToPrepare": "5 mins",
+        "difficultyLevel": "Very Easy",
+        "rating": "★★★★☆",
+        "detailsPage": "peanut-butter-banana-toast-details.html"
+    },
+    {
+        "name": "Greek Yogurt Parfait",
+        "image": "https://www.beyondthechickencoop.com/wp-content/uploads/2023/05/Greek-Yogurt-Berry-Parfait-4.jpg",
+        "timeToPrepare": "8 mins",
+        "difficultyLevel": "Easy",
+        "rating": "★★★☆☆",
+        "detailsPage": "greek-yogurt-parfait-details.html"
+    }
+]
